@@ -49,7 +49,6 @@ namespace Kudashova320.Pages
             if (currenrUser != null)
             {
                 if (currenrUser.ID == 1)
-
                     NavigationService.Navigate(new RaListPage());
                 else if (currenrUser.ID == 2)
                     NavigationService.Navigate(new NubiListPage());
