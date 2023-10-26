@@ -46,13 +46,15 @@ namespace Kudashova320.Pages
             Human currenrUser = humans.FirstOrDefault(i => i.Login == login && i.Password == password);
 
 
-            if (currenrUser != null)
+            if (currenrUser != null && currenrUser.ID == 1)
             {
-                if (currenrUser.ID == 1)
-                    NavigationService.Navigate(new RaListPage());
-                else if (currenrUser.ID == 2)
-                    NavigationService.Navigate(new NubiListPage());
+                NavigationService.Navigate(new RaListPage());
+                MessageBox.Show("1");
+
             }
+            else if (currenrUser != null && currenrUser.ID == 2)
+            {  NavigationService.Navigate(new NubiListPage());
+            MessageBox.Show("2"); }
             else
                 MessageBox.Show(" Введите данные корректно!");
         }

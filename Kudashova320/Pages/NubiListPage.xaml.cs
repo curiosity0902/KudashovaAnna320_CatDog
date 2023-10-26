@@ -32,7 +32,7 @@ namespace Kudashova320.Pages
             animals = new List<Animal>(DBConnection.catDogEntities.Animal.ToList());
 
             this.DataContext = this;
-            RaLv.ItemsSource = new List<Animal>(DBConnection.catDogEntities.Animal.ToList());
+            NubiLv.ItemsSource = new List<Animal>(DBConnection.catDogEntities.Animal.ToList());
         }
 
 
@@ -52,9 +52,9 @@ namespace Kudashova320.Pages
             filtred = filtred.Where(x => x.Name == name.Name).ToList();
 
 
-            if (!string.IsNullOrWhiteSpace(surchText))
-                filtred = filtred.Where(x => x.Describe.ToLower().Contains(surchText)).ToList();
-            RaLv.ItemsSource = filtred.ToList();
+            //if (!string.IsNullOrWhiteSpace(surchText))
+            //    filtred = filtred.Where(x => x.Describe.ToLower().Contains(surchText)).ToList();
+            NubiLv.ItemsSource = filtred.ToList();
         }
 
         private void TypeFilterCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -64,14 +64,18 @@ namespace Kudashova320.Pages
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Refresh();
+            if (SearchTB.Text.Length > 0)
+                NubiLv.ItemsSource = DBConnection.catDogEntities.Animal.Where(i => i.Describe.Contains(SearchTB.Text.Trim())).ToList();
+            else
+                NubiLv.ItemsSource = new List<Animal>(DBConnection.catDogEntities.Animal.ToList());
         }
 
-
-        private void AddAnimal_Click_1(object sender, RoutedEventArgs e)
+        private void AddAnimal_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new NewAnimalPage());
         }
     }
+
+
 }
 

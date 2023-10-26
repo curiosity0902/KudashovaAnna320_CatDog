@@ -52,8 +52,8 @@ namespace Kudashova320.Pages
                 filtred = filtred.Where(x => x.Name == name.Name).ToList();
 
 
-            if (!string.IsNullOrWhiteSpace(surchText))
-                filtred = filtred.Where(x => x.Describe.ToLower().Contains(surchText)).ToList();
+            //if (!string.IsNullOrWhiteSpace(surchText))
+            //    filtred = filtred.Where(x => x.Describe.ToLower().Contains(surchText)).ToList();
             RaLv.ItemsSource = filtred.ToList();
         }
 
@@ -64,7 +64,10 @@ namespace Kudashova320.Pages
 
         private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Refresh();
+            if (SearchTB.Text.Length > 0)
+                RaLv.ItemsSource = DBConnection.catDogEntities.Animal.Where(i => i.Describe.Contains(SearchTB.Text.Trim())).ToList();
+            else
+                RaLv.ItemsSource = new List<Animal>(DBConnection.catDogEntities.Animal.ToList());
         }
 
 

@@ -31,7 +31,7 @@
         </Grid.RowDefinitions>
 
         <ListView FontFamily="Century Gothic"
-x:Name="RaLv"
+x:Name="NubiLv"
 Grid.ColumnSpan="5"
 Grid.RowSpan="7"
 ItemsSource="{Binding animals}">
@@ -125,7 +125,7 @@ ItemsSource="{Binding animals}">
         <Button x:Name="AddAnimal"
             Content="Добавить rjuj nj"
     Grid.Column="7"
-    Grid.Row="7" Click="AddAnimal_Click_1"
+    Grid.Row="7" Click="AddAnimal_Click"
             />
     </Grid>
 </Page>
