@@ -45,10 +45,10 @@ namespace Kudashova320.Pages
         {
             var filtred = DBConnection.catDogEntities.Animal.ToList();
 
-            var name = TypeFilterCB.SelectedItem as Type;
+            var name = TypeFilterCB.SelectedItem as Animal;
             var surchText = SearchTB.Text.ToLower();
 
-            if (TypeFilterCB.SelectedIndex != 0 && name != null)
+            //if (TypeFilterCB.SelectedIndex != 0 && name != null)
                 filtred = filtred.Where(x => x.Name == name.Name).ToList();
 
 

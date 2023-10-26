@@ -9,6 +9,123 @@
       Title="NubiListPage">
 
     <Grid>
-        <TextBox Text="74747747447"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+        <ListView FontFamily="Century Gothic"
+x:Name="RaLv"
+Grid.ColumnSpan="5"
+Grid.RowSpan="7"
+ItemsSource="{Binding animals}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+
+
+                        <GridViewColumn Header ="Фотография" Width="215">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Image Source="{Binding Photo}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Header ="Описание" Width="290">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Describe}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+
+        <TextBlock
+    Grid.Column="5"
+    Grid.Row="1"
+         HorizontalAlignment="Center"
+    VerticalAlignment="Center" 
+        Text="Фильтр">
+        </TextBlock>
+
+        <ComboBox x:Name="TypeFilterCB"
+         FontFamily="Century Gothic"
+       Grid.Column="5"
+       Grid.Row="2"
+       HorizontalAlignment="Center"
+       VerticalAlignment="Center"
+       Width="120"
+       Height="35"
+       ItemsSource="{Binding animals}" SelectionChanged="TypeFilterCB_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button x:Name="ExitBT" Grid.Column="1"
+           Grid.Row="7"
+           Grid.ColumnSpan="4"
+            Grid.RowSpan="2"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Center"
+           Height="45"
+           Width="300"
+            FontSize="22"
+           Content="ВЕРНУТЬСЯ НА ГЛАВНУЮ" Click="ExitBT_Click" >
+        </Button>
+
+        <TextBlock
+   Grid.Column="5"
+   Grid.Row="4"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center" 
+       Text="Поиск">
+        </TextBlock>
+
+        <TextBox x:Name="SearchTB"
+        Grid.Column="5"
+           Grid.Row="5"
+           Height="35"
+             Width="150" TextChanged="SearchTB_TextChanged">
+
+        </TextBox>
+
+
+        <Button x:Name="AddAnimal"
+            Content="Добавить rjuj nj"
+    Grid.Column="7"
+    Grid.Row="7" Click="AddAnimal_Click_1"
+            />
     </Grid>
 </Page>

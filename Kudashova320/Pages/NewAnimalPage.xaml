@@ -61,9 +61,16 @@
                   VerticalAlignment="Center"
                   Width="120"
                   Height="35"
-                  ItemsSource="{Binding Name}"/>
-        
-        
+                  ItemsSource="{Binding animals}">
+
+            <ComboBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Name}"/>
+            </DataTemplate>
+        </ComboBox.ItemTemplate>
+</ComboBox>
+
+
         <TextBox x:Name="DescribeTb"
                    FontFamily="Century Gothic"
      Grid.Row="2"

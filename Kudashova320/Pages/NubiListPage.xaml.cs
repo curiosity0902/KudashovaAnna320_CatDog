@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kudashova320.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,57 @@ namespace Kudashova320.Pages
     /// </summary>
     public partial class NubiListPage : Page
     {
+        public static List<Animal> animals { get; set; }
+
+
+        //new List<AnimalCat> animalCats { get; set; } 
+
         public NubiListPage()
         {
             InitializeComponent();
+            animals = new List<Animal>(DBConnection.catDogEntities.Animal.ToList());
+
+            this.DataContext = this;
+            RaLv.ItemsSource = new List<Animal>(DBConnection.catDogEntities.Animal.ToList());
+        }
+
+
+        private void ExitBT_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AutorizationPage());
+        }
+
+        private void Refresh()
+        {
+            var filtred = DBConnection.catDogEntities.Animal.ToList();
+
+            var name = TypeFilterCB.SelectedItem as Animal;
+            var surchText = SearchTB.Text.ToLower();
+
+            //if (TypeFilterCB.SelectedIndex != 0 && name != null)
+            filtred = filtred.Where(x => x.Name == name.Name).ToList();
+
+
+            if (!string.IsNullOrWhiteSpace(surchText))
+                filtred = filtred.Where(x => x.Describe.ToLower().Contains(surchText)).ToList();
+            RaLv.ItemsSource = filtred.ToList();
+        }
+
+        private void TypeFilterCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+
+        private void AddAnimal_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new NewAnimalPage());
         }
     }
 }
+

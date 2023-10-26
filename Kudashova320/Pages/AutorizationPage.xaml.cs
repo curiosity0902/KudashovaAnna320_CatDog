@@ -33,8 +33,16 @@ namespace Kudashova320.Pages
             string login = LoginTB.Text.Trim();
             string password = PasswordTB.Password.Trim();
 
+
+            //if (login == "1234")
+            //    NavigationService.Navigate(new RaListPage());
+            //else if (login == "123")
+            //    NavigationService.Navigate(new NubiListPage());
+            //else
+            //    MessageBox.Show(" Введите данные корректно!");
+
             Human human = new Human();
-           humans = new List <Human>(DBConnection.catDogEntities.Human.ToList());
+            humans = new List<Human>(DBConnection.catDogEntities.Human.ToList());
             Human currenrUser = humans.FirstOrDefault(i => i.Login == login && i.Password == password);
 
 
