@@ -26,3 +26,5 @@ C:\Users\202108\source\repos\Kudashova320\Kudashova320\obj\Debug\Kudashova320.ex
 C:\Users\202108\source\repos\Kudashova320\Kudashova320\obj\Debug\Kudashova320.pdb
 C:\Users\202108\source\repos\Kudashova320\Kudashova320\obj\Debug\Pages\NubiListPage.g.cs
 C:\Users\202108\source\repos\Kudashova320\Kudashova320\obj\Debug\Pages\NubiListPage.baml
+C:\Users\202108\source\repos\Kudashova320\Kudashova320\obj\Debug\Pages\NewAnimalPage.g.cs
+C:\Users\202108\source\repos\Kudashova320\Kudashova320\obj\Debug\Pages\NewAnimalPage.baml

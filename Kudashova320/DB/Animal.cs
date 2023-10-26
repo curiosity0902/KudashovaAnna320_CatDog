@@ -19,6 +19,7 @@ namespace Kudashova320.DB
         public Nullable<int> IDType { get; set; }
         public byte[] Photo { get; set; }
         public Nullable<int> IDHuman { get; set; }
+        public string Describe { get; set; }
     
         public virtual Human Human { get; set; }
         public virtual tYPE tYPE { get; set; }

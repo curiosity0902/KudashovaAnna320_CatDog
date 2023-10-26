@@ -9,6 +9,7 @@
     <Property Name="IDType" Type="int" />
     <Property Name="Photo" Type="varbinary(max)" />
     <Property Name="IDHuman" Type="int" />
+    <Property Name="Describe" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Human">
     <Key>

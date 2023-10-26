@@ -33,20 +33,21 @@ namespace Kudashova320.Pages
             string login = LoginTB.Text.Trim();
             string password = PasswordTB.Password.Trim();
 
-            humans = new List
-            <Human>(DBConnection.catDogEntities.Human.ToList());
-            
+            Human human = new Human();
+           humans = new List <Human>(DBConnection.catDogEntities.Human.ToList());
+            Human currenrUser = humans.FirstOrDefault(i => i.Login == login && i.Password == password);
 
-            if (login == "1234")
-                if (password == "12345")
-                NavigationService.Navigate(new RaListPage());
-                else
-                    MessageBox.Show(" Введите данные корректно!");
-            if (login == "123")
-                if (password == "1234")
+
+            if (currenrUser != null)
+            {
+                if (currenrUser.ID == 1)
+
+                    NavigationService.Navigate(new RaListPage());
+                else if (currenrUser.ID == 2)
                     NavigationService.Navigate(new NubiListPage());
-            else 
-             MessageBox.Show(" Введите данные корректно!");
+            }
+            else
+                MessageBox.Show(" Введите данные корректно!");
         }
     }
 }

@@ -11,6 +11,7 @@
     <Property Name="IDHuman" Type="Int32" />
     <NavigationProperty Name="Human" Relationship="Self.FK_Animal_Human" FromRole="Animal" ToRole="Human" />
     <NavigationProperty Name="tYPE" Relationship="Self.FK_Animal_tYPE" FromRole="Animal" ToRole="tYPE" />
+    <Property Name="Describe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Human">
     <Key>
