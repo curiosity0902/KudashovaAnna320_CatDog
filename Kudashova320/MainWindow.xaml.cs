@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kudashova320.Pages;
 
 namespace Kudashova320
 {
@@ -23,6 +24,7 @@ namespace Kudashova320
         public MainWindow()
         {
             InitializeComponent();
+            navFr.NavigationService.Navigate(new AutorizationPage());
         }
     }
 }

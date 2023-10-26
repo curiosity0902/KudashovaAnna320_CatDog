@@ -108,10 +108,24 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\NubiListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RaListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NubiListPage.xaml.cs">
+      <DependentUpon>NubiListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RaListPage.xaml.cs">
+      <DependentUpon>RaListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
